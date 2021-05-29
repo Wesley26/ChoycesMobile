@@ -5,7 +5,7 @@ import Navigator from './navigation/Navigation';
 
 
 
-export default function App() {
+export default App = () => {
   return (
    
     <NavigationContainer>

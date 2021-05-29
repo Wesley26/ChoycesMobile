@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Image, Button } from 'react-native';
+import { Button, View } from 'react-native';
 
-
+//tailwind import
+import { tailwind } from '../tailwind.js';
 
 /* 
 I am currently using the custom component import, but I will change it to a standalone since it'll be a submission button. Also, I think I will turn these inputs into pure components tomorrow 
@@ -15,21 +16,21 @@ import Logo from '../components/logo';
 
 
 
-function LoginPage({ navigation }) {
+export default LoginPage = ({ navigation }) => {
     return (
-        <View style={styles.screen}>
+        <View style={tailwind('flex-1 flex-col justify-center')}>
 
         <Logo/>
 
             <Input
-                style={styles.username}
+                style={tailwind('bg-loginBtn')}
                 placeholder='Username'
                 placeholderTextColor='white'
                 iconName='person-circle-outline'
-                />        
+            />        
 
             <Input
-                style={styles.password}
+                style={tailwind('bg-password')}
                 placeholder='Password'
                 placeholderTextColor='white'
                 iconName='lock-open-outline'
@@ -37,10 +38,10 @@ function LoginPage({ navigation }) {
             />
            
             <RoundBtn buttontext="Login"
-                style={styles.loginBtn}
+                style={tailwind('bg-loginBtn2 mt-15pix')}
                 onPress={() => navigation.navigate('Welcome')}
             />
-            <View style ={ {marginTop: 30}}>
+            <View style ={tailwind('mt-30pix')}>
             <Button title=" EduLanding" onPress={() => navigation.navigate('EduLanding')}/>
             <Button title=" EmpLanding" onPress={() => navigation.navigate('EmpLanding')}/>
             <Button title=" StudentLanding" onPress={() => navigation.navigate('StudentLanding')}/>
@@ -53,6 +54,7 @@ function LoginPage({ navigation }) {
 
 };
 
+/**
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
@@ -77,4 +79,4 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     }
 });
-export default LoginPage;
+*/

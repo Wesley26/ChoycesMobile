@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+//tailwind import
+import { tailwind, colorConfig } from '../tailwind.js';
 
 import RoundBtn from '../components/button';
 import Logo from '../components/logo';
@@ -7,46 +10,52 @@ import { Picker } from 'react-native-picker-dropdown'
 import { Ionicons } from '@expo/vector-icons';
 
 
-function GetStarted({navigation}){
+export default GetStarted = ({navigation}) => {
 
     const [loginType, setLoginType] = useState("educator");
     
-    var type = `{type: "${loginType}"}`;
+    var type = `{type: "${loginType}"}`; //???
     
     return(
-        <View style={styles.screen}>
+        <View style={tailwind('flex-1 content-center justify-end')}>
         <Logo/>
-        <View style={styles.container}>
-                <Ionicons name="person-outline" size={24} color="white" style={styles.icon} />
-        <Picker
-        prompt= "select a login type"
-        style={styles.picker}
-        selectedValue={loginType}
-        onValueChange={(itemValue, itemIndex) =>
-        setLoginType(itemValue)}
-        mode="dropdown"
-        textStyle={styles.pickerText}
-        >
+            <View style={tailwind('flex-0.4 flex-row justify-center w-85percent bg-nameTextBox rounded-full self-center items-baseline max-h-50pix min-h-50pix')}>
+                    <Ionicons 
+                        name="person-outline" 
+                        size={24} 
+                        color="white" 
+                        style={tailwind('pl-10pix pt-5pix')} 
+                    />
+                <Picker
+                    prompt= "select a login type"
+                    style={tailwind('flex-1 self-center h-30pix')}
+                    selectedValue={loginType}
+                    onValueChange={(itemValue, itemIndex) =>
+                    setLoginType(itemValue)}
+                    mode="dropdown"
+                    textStyle={[
+                                colorConfig.textColorWhite,
+                                tailwind('p-5pix text-18pix text-center')
+                    ]}
+                >
 
-                    <Picker.Item label="Educator" value="educator" key="1"/>
-                    <Picker.Item label="Employee" value="employee" key="2"/>
-                    <Picker.Item label="Parent" value="parent" key="3"/>
-                    <Picker.Item label="Student" value="student"  key="4"/>
+                            <Picker.Item label="Educator" value="educator" key="1"/>
+                            <Picker.Item label="Employee" value="employee" key="2"/>
+                            <Picker.Item label="Parent" value="parent" key="3"/>
+                            <Picker.Item label="Student" value="student"  key="4"/>
 
-        </Picker>
-        </View>
+                </Picker>
+            </View>
         <View>
-        <RoundBtn buttontext="Continue"
-                style={styles.signBtn}
-                onPress={() => navigation.navigate('GetStarted2', {
-                    type: loginType
-                })}
+            <RoundBtn buttontext="Continue"
+                    style={tailwind('bg-signBtn mt-10percent h-40pix')}
+                    onPress={() => navigation.navigate('GetStarted2', {
+                        type: loginType
+                    })}
             />
         </View>
 
-
-
-        <View style={styles.bottomLink}>
+        <View style={tailwind('flex-1 justify-end items-center mb-20percent')}>
             <Text>
                 Already have an account?
             </Text>
@@ -59,6 +68,8 @@ function GetStarted({navigation}){
     )
 
 };
+
+/**
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
@@ -116,5 +127,4 @@ const styles = StyleSheet.create({
         marginBottom: "20%",
     }
 });
-
-export default GetStarted;
+*/

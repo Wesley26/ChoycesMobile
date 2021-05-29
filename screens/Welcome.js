@@ -1,24 +1,37 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, TouchableWithoutFeedback} from 'react-native';
+import { Text, 
+        TouchableWithoutFeedback,
+        View, } from 'react-native';
+
+//tailwind import
+import { tailwind, fontConfig } from '../tailwind.js';
+
+//custom component import
 import Logo from '../components/logo';
 
-function Welcome({ navigation }){
+export default Welcome = ({ navigation }) => {
     return(
         <TouchableWithoutFeedback 
         onPress={() => navigation.navigate('LoginSign')}>
-        <View  style={styles.screen}>
 
-       
-        <Logo/>
-        <Text style={styles.text}>
-            WELCOME
-        </Text>
-        </View>
+            <View  style={tailwind('flex-1 justify-center')}>
+
+            <Logo/>
+
+                <Text style={[ 
+                            fontConfig.fontFamilyText,
+                            tailwind('text-38pix font-bold self-center -top-40')
+                            ]}>
+                    WELCOME
+                </Text>
+
+            </View>
 
         </TouchableWithoutFeedback>
     )
 };
 
+/**
 const styles = StyleSheet.create({
     screen: {
         flex:1,
@@ -39,4 +52,4 @@ const styles = StyleSheet.create({
 
     }
 })
-export default Welcome;
+*/

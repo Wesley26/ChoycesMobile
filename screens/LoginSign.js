@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
+import { View } from 'react-native';
+
+//tailwind import
+import { tailwind } from '../tailwind.js';
 
 //custom component import
 import RoundBtn from '../components/button';
@@ -7,19 +10,19 @@ import Logo from '../components/logo'
 
 
 
-const LoginSign = ({ navigation }) => {
+export default LoginSign = ({ navigation }) => {
     return (
-        <View style={styles.screen}>
+        <View style={tailwind('flex-1 pt-40percent')}>
 
             <Logo />
 
             <RoundBtn buttontext="Login"
-                style={styles.loginBtn}
+                style={tailwind('bg-loginBtn')}
                 onPress={() => navigation.navigate('LoginPage')}
             />
 
             <RoundBtn buttontext="Sign Up"
-                style={styles.signBtn}
+                style={tailwind('bg-signBtn')}
                 onPress={() => navigation.navigate('GetStarted')}
             />
 
@@ -30,6 +33,7 @@ const LoginSign = ({ navigation }) => {
     )
 };
 
+/**
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
@@ -42,4 +46,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#d6204e',
     },
 });
-export default LoginSign;
+*/

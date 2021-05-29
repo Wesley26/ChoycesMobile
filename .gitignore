@@ -1,4 +1,4 @@
-node_modules/**/*
+node_modules
 .expo/*
 npm-debug.*
 *.jks
@@ -8,6 +8,16 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+
+# Visual Studio Code folder
+.vscode
+
+# tailwind, keep un-tracked and ignored while in development
+styles.json
+
+# Yarn files
+yarn-error.log
+yarn.lock
 
 # macOS
 .DS_Store

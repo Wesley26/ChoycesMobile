@@ -1,6 +1,11 @@
+/**
 import * as firebase from 'firebase';
 import '@firebase/auth';
 import '@firebase/firestore';
+
+//Commented out entirely until FireBase situation is resolved. - WesD.
+//API Keys should be stored in a JSON file un-tracked from repository to keep
+//database secure and/or use an encryption npm dependency.
 
 const firebaseConfig = {
     apiKey: "AIzaSyDaIjLBcGU3yPzcisP1-CwFfwou7eMLHbU",
@@ -15,3 +20,4 @@ if(!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 export {firebase };
+*/
